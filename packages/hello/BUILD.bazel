@@ -1,18 +1,11 @@
-load("@npm//@bazel/typescript:index.bzl", "ts_library")
-load("@build_bazel_rules_nodejs//:index.bzl", "nodejs_binary")
+load("@build_bazel_rules_nodejs//:index.bzl", "nodejs_binary", "js_library")
 
-ts_library(
+js_library(
     name = "hello",
-    srcs = glob(["*.ts"]),
-)
-
-filegroup(
-    name = "hello.js",
-    srcs = ["hello"],
-    output_group = "es5_sources",
+    srcs = [":index.js"],
 )
 
 nodejs_binary(
     name = "hello-cli",
-    entry_point = ":hello.js",
+    entry_point = ":hello",
 )

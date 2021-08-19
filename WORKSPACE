@@ -1,5 +1,5 @@
 workspace(
-    name = "bazel-typescript-init",
+    name = "bazel-node-init",
     managed_directories = {
         "@npm": ["external/node_modules"],
     },
